@@ -23,6 +23,7 @@ def get_coin_info(name):
         print("Fetched coin list successfully")
     print(coins[:10])  # Print first 10 coins for reference
 
+# function to get coin price with associated price
 def get_coin_price(coin_ids, vs_currency="usd"):
     ids = ",".join(coin_ids)
     url = f"{base_url}/simple/price?ids={ids}&vs_currencies={vs_currency}"
@@ -35,6 +36,7 @@ def get_coin_price(coin_ids, vs_currency="usd"):
         prices = response.json()
     return prices
 
+# function to transform data collected and transform into csv
 def transform_data(prices, vs_currency="usd"):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     data = [
